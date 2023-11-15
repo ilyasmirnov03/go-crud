@@ -1,0 +1,13 @@
+{{define "content"}}
+<section class="posts">
+    <header>
+        <h2>Posts</h2>
+    </header>
+    {{range $post := .}}
+    <article class="posts__post">
+        <p class="posts__date">{{$post.CreatedAt}}</p>
+        <p>{{$post.Content}}</p>
+    </article>
+    {{end}}
+</section>
+{{end}}

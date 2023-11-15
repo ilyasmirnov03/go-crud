@@ -1,0 +1,16 @@
+.posts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.posts__post {
+    max-width: 20rem;
+    width: 100%;
+}
+
+.posts__date {
+    font-size: .75rem;
+    opacity: 75%;
+}
