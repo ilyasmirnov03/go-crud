@@ -1,6 +1,16 @@
 version: '3.1'
 
 services:
+
+  # app:
+  #   build:
+  #     context: ./
+  #     dockerfile: Dockerfile
+  #   depends_on:
+  #     - db
+  #   ports:
+  #     - 1337:1337
+
   db:
     image: postgres
     restart: always
