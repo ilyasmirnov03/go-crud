@@ -2,6 +2,7 @@ package routes
 
 import (
 	"l33ass/crud/database"
+	"l33ass/crud/services"
 	"math/rand"
 	"net/http"
 	"text/template"
@@ -23,5 +24,8 @@ func SetupRouter() {
 		number := rand.Int31()
 		tmpl := template.Must(template.ParseFiles("templates/random.html"))
 		tmpl.Execute(w, number)
+	})
+	http.HandleFunc("/notification", func(w http.ResponseWriter, r *http.Request) {
+		services.SendPushNotification()
 	})
 }
