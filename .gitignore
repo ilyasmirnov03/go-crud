@@ -9,6 +9,7 @@ lerna-debug.log*
 
 _dist
 *.local
+.env
 
 # Editor directories and files
 .vscode/*

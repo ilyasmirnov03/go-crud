@@ -2,14 +2,18 @@ version: '3.1'
 
 services:
 
-  # app:
-  #   build:
-  #     context: ./
-  #     dockerfile: Dockerfile
-  #   depends_on:
-  #     - db
-  #   ports:
-  #     - 1337:1337
+  app:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    depends_on:
+      - db
+    ports:
+      - ${APP_EXPOSED_PORT}:${APP_PORT}
+    environment:
+      APP_MODE: ${APP_MODE}
+      POSTGRES_EXPOSED_PORT: ${POSTGRES_EXPOSED_PORT}
+      APP_PORT: ${APP_PORT}
 
   db:
     image: postgres
@@ -19,7 +23,7 @@ services:
     volumes:
       - pgdata:/var/lib/postgresql/data
     ports:
-      - 5432:5432
+      - ${POSTGRES_EXPOSED_PORT}:5432
 
   adminer:
     image: adminer
@@ -27,7 +31,7 @@ services:
     depends_on:
       - db
     ports:
-      - 8080:8080
+      - ${ADMINER_EXPOSED_PORT}:8080
 
 volumes:
   pgdata: {}
