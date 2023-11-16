@@ -9,7 +9,8 @@ import (
 
 // Sets up app routes and its handle functions
 func SetupRouter() {
-	http.Handle("/assets/", http.StripPrefix("/assets/", http.FileServer(http.Dir("_dist"))))
+	http.Handle("/build/", http.StripPrefix("/build/", http.FileServer(http.Dir("_dist"))))
+	http.Handle("/assets/", http.StripPrefix("/assets/", http.FileServer(http.Dir("frontend/assets"))))
 
 	tmpl := make(map[string]*template.Template)
 	tmpl["landing"] = template.Must(template.ParseFiles("templates/landing.html", "templates/base/base.html"))
