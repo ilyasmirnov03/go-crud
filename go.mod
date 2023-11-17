@@ -4,8 +4,6 @@ go 1.21.3
 
 require github.com/evanw/esbuild v0.19.5
 
-require github.com/joho/godotenv v1.5.1
-
 require (
 	github.com/SherClockHolmes/webpush-go v1.3.0
 	github.com/golang-jwt/jwt v3.2.2+incompatible // indirect
