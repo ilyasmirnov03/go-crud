@@ -8,7 +8,7 @@ import (
 
 func setup_bundler() {
 	js_result := api.Build(api.BuildOptions{
-		EntryPoints:       []string{"frontend/js/main.js"},
+		EntryPoints:       []string{"public/js/main.js"},
 		Bundle:            true,
 		MinifyWhitespace:  true,
 		MinifyIdentifiers: true,
@@ -23,7 +23,7 @@ func setup_bundler() {
 		Write: true,
 	})
 	css_result := api.Build(api.BuildOptions{
-		EntryPoints:       []string{"frontend/css/global.css"},
+		EntryPoints:       []string{"public/css/global.css"},
 		Bundle:            true,
 		MinifyWhitespace:  true,
 		MinifyIdentifiers: true,
@@ -37,7 +37,7 @@ func setup_bundler() {
 		},
 		Write: true,
 	})
-	if len(js_result.Errors) > 0 && len(css_result.Errors) != 0 {
+	if len(js_result.Errors) > 0 && len(css_result.Errors) > 0 {
 		log.Fatal("Assets build error", js_result.Errors, css_result.Errors)
 	}
 }
